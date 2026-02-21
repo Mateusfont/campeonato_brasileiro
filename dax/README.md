@@ -3,23 +3,23 @@
 ```DAX
 AVERAGE(f_Estatistica[posse_de_bola])
 ```
-```DAX
-Cartões amarelo	
+## Cartões amarelo
+```DAX	
 CALCULATE(
     COUNTROWS(f_Cartoes),
     f_Cartoes[cartao] = "Amarelo"
 ) + 0
 ```
-```DAX
-Cartões na prorrogação	
+## Cartões na prorrogação
+```DAX	
 CALCULATE(
     COUNTROWS(f_Cartoes),
     f_Cartoes[Prorrogacao] = "Prorrogação P.T" ||
     f_Cartoes[Prorrogacao] = "Prorrogação S.T"
 ) + 0
 ```
-```DAX
-Cartões no primeiro tempo	
+## Cartões no primeiro tempo
+```DAX	
 CALCULATE(
     COUNTROWS(f_Cartoes),
     f_Cartoes[Etapa] = "Primeiro Tempo"
