@@ -1,6 +1,8 @@
 # Dax do projeto
 ## % POS_BOLA	
-''AVERAGE(f_Estatistica[posse_de_bola])''
+```DAX
+AVERAGE(f_Estatistica[posse_de_bola])
+```
 Cartões amarelo	
 CALCULATE(
     COUNTROWS(f_Cartoes),
