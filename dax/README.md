@@ -3,14 +3,14 @@
 ```DAX
 AVERAGE(f_Estatistica[posse_de_bola])
 ```
-## Cartões amarelo
+## CARTÕES AMARELO
 ```DAX	
 CALCULATE(
     COUNTROWS(f_Cartoes),
     f_Cartoes[cartao] = "Amarelo"
 ) + 0
 ```
-## Cartões na prorrogação
+## CARTÕES NA PRORROGAÇÃO
 ```DAX	
 CALCULATE(
     COUNTROWS(f_Cartoes),
@@ -18,21 +18,21 @@ CALCULATE(
     f_Cartoes[Prorrogacao] = "Prorrogação S.T"
 ) + 0
 ```
-## Cartões no primeiro tempo
+## CARTÕES NO PRIMEIRO TEMPO
 ```DAX	
 CALCULATE(
     COUNTROWS(f_Cartoes),
     f_Cartoes[Etapa] = "Primeiro Tempo"
 ) + 0
 ```
-## Cartões no segundo tempo
+## CARTÕES NO SEGUNDO TEMPO
 ```DAX	
 CALCULATE(
     COUNTROWS(f_Cartoes),
     f_Cartoes[Etapa] = "Segundo Tempo"
 ) + 0
 ```
-## Cartões vermelho
+## CARTÕES VERMELHO
 ```DAX	
 CALCULATE(
     COUNTROWS(f_Cartoes),
@@ -43,7 +43,7 @@ CALCULATE(
 ```DAX	
 SUM(f_Estatistica[chutes_no_alvo])
 ```
-## Clube com maior quantidade de vitorias
+## CLUBE COM A MAIOR QUANTIDADE DE VITÓRIAS
 ```DAX	
 var Tabela_Vitorias = 
     SUMMARIZE(
@@ -66,7 +66,7 @@ return
         f_Base_Dados[vencedor]
     )
 ```
-## Média de cartões por jogo
+## MÉDIA DE CARTÕES POR JOGO
 ```DAX
 VAR Quantidade_jogos_disputados = 
     DISTINCTCOUNT(f_Cartoes[partida_id])
@@ -75,7 +75,7 @@ VAR Quantidade_cartoes =
 RETURN
 Quantidade_cartoes / Quantidade_jogos_disputados
 ```
-## Partidas
+## PARTIDAS
 ```DAX	
 DISTINCTCOUNT(f_Cartoes[partida_id]) + 0
 ```
@@ -128,7 +128,7 @@ DISTINCTCOUNT(f_Gols[partida_id])
 ```DAX	
 COUNT(f_Base_Dados[vencedor])
 ```
-## Total de cartões
+## TOTAL DE CARTÕES
 ```DAX	
 [Cartões amarelo] + [Cartões vermelho] + 0
 ```
