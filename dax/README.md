@@ -25,26 +25,26 @@ CALCULATE(
     f_Cartoes[Etapa] = "Primeiro Tempo"
 ) + 0
 ```
-```DAX
-Cartões no segundo tempo	
+## Cartões no segundo tempo
+```DAX	
 CALCULATE(
     COUNTROWS(f_Cartoes),
     f_Cartoes[Etapa] = "Segundo Tempo"
 ) + 0
 ```
-```DAX
-Cartões vermelho	
+## Cartões vermelho
+```DAX	
 CALCULATE(
     COUNTROWS(f_Cartoes),
     f_Cartoes[cartao] = "Vermelho"
 ) + 0
 ```
-```DAX
-CHUTES_GOL	
+## CHUTES_GOL
+```DAX	
 SUM(f_Estatistica[chutes_no_alvo])
 ```
-```DAX
-Clube com maior quantidade de vitorias	
+## Clube com maior quantidade de vitorias
+```DAX	
 var Tabela_Vitorias = 
     SUMMARIZE(
         FILTER(f_Base_Dados, f_Base_Dados[vencedor] <> "Empate"),
@@ -66,8 +66,8 @@ return
         f_Base_Dados[vencedor]
     )
 ```
+## Média de cartões por jogo
 ```DAX
-Média de cartões por jogo	
 VAR Quantidade_jogos_disputados = 
     DISTINCTCOUNT(f_Cartoes[partida_id])
 VAR Quantidade_cartoes = 
@@ -75,60 +75,60 @@ VAR Quantidade_cartoes =
 RETURN
 Quantidade_cartoes / Quantidade_jogos_disputados
 ```
-```DAX
-Partidas	
+## Partidas
+```DAX	
 DISTINCTCOUNT(f_Cartoes[partida_id]) + 0
 ```
-```DAX
-POS_BOLA	
+## POS_BOLA
+```DAX	
 SUM(f_Estatistica[posse_de_bola])
 ```
-```DAX
-PREC_PASSES	
+## PREC_PASSES
+```DAX	
 AVERAGE(f_Estatistica[precisao_passes])
 ```
-```DAX
-QTD_ESCANTEIOS	
+## QTD_ESCANTEIOS
+```DAX	
  SUM(f_Estatistica[escanteios])
 ```
-```DAX
-QTD_FALTAS	
+## QTD_FALTAS
+```DAX	
 SUM(f_Estatistica[faltas])
 ```
-```DAX
-QTD_GOLS	
+## QTD_GOLS
+```DAX	
 CALCULATE(
     COUNTROWS(f_Gols),
     f_Gols[tipo_de_gol] = "Gol Normal"
 )
 ```
-```DAX
-QTD_GOLS_CONTRA	
+## QTD_GOLS_CONTRA
+```DAX	
 CALCULATE(
     COUNTROWS(f_Gols),
     f_Gols[tipo_de_gol] = "Gol Contra"
 )
 ```
-```DAX
-QTD_GOLS_PENALTY	
+## QTD_GOLS_PENALTY
+```DAX	
 CALCULATE(
     COUNTROWS(f_Gols),
     f_Gols[tipo_de_gol] = "Pênalti"
 )
 ```
-```DAX
-QTD_IMPEDIMENTOS	
+## QTD_IMPEDIMENTOS
+```DAX	
 SUM(f_Estatistica[impedimentos])
 ```
-```DAX
-QTD_PARTIDAS	
+## QTD_PARTIDAS
+```DAX	
 DISTINCTCOUNT(f_Gols[partida_id])
 ```
-```DAX
-QTD_VITORIAS	
+## QTD_VITORIAS
+```DAX	
 COUNT(f_Base_Dados[vencedor])
 ```
-```DAX
-Total de cartões	
+## Total de cartões
+```DAX	
 [Cartões amarelo] + [Cartões vermelho] + 0
 ```
